@@ -1,6 +1,8 @@
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include "monty.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * push - add a new element at the beginning of the stack
@@ -25,13 +27,13 @@ void push(stack_t **stack, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n", line_number);
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = v;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 	if (*stack != NULL)
-		(*stack)->prev->new_node;
+		(*stack)->prev = new_node;
 	*stack = new_node;
 }
