@@ -31,6 +31,7 @@ __attribute__((unused)) void process_file(const char *file)
 	while (getline(&l, &length, ptr) != -1)
 	{
 		line_number++;
+		printf("Line %u: %s", line_number, l);
 		opcode = strtok(l, " \t\n");
 		if (opcode != NULL)
 		{
